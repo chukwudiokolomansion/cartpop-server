@@ -1,0 +1,16 @@
+{
+  "name": "cartpop-server-server",
+  "version": "0.0.0",
+  "private": true,
+ "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev src/server.ts"
+},
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.3"
+  }
+}
