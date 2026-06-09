@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "moduleDetection": "force",
-    "module": "commonjs",
-    "types": ["node"],
-    "outDir": "./dist",
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "verbatimModuleSyntax": true,
+    "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"]
+    "outDir": "dist",
+    "rootDir": "."
+  }
 }
