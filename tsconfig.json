@@ -6,6 +6,7 @@
     "verbatimModuleSyntax": true,
     "strict": true,
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
