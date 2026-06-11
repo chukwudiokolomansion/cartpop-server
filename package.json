@@ -4,6 +4,12 @@
   "packageManager": "npm@10.9.0",
   "type": "module",
   "scripts": {
+  "dev": "tsx watch app.ts",
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "tsx app.ts",
+  "build": "prisma generate && tsc"
+ },
+ /* "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/src/index.js",
@@ -11,7 +17,7 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed"
-  },
+  },*/
   "dependencies": {
     "@hono/node-server": "^1.19.9",
     "@prisma/adapter-pg": "^7.8.0",
