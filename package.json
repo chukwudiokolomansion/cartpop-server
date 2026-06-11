@@ -7,6 +7,10 @@
   "dev": "tsx watch app.ts",
   "test": "echo \"Error: no test specified\" && exit 1",
   "start": "tsx app.ts",
+    "db:generate": "prisma generate",
+  "db:push": "prisma db push",
+  "db:migrate": "prisma migrate dev",
+  "db:seed": "prisma db seed",
   "build": "prisma generate && tsc"
  },
  /* "scripts": {
