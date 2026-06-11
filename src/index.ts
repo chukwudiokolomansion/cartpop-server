@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { prisma } from "./lib/prisma";
+import { prisma } from "./lib/prisma.ts";
 
 const app = new Hono();
 
