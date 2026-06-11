@@ -1,4 +1,4 @@
-import prisma from "../src/lib/prisma";
+import prisma from "../src/lib/prisma.js";
 async function main() {
     const users = await Promise.all([
         prisma.user.upsert({
