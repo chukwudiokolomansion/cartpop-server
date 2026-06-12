@@ -86,6 +86,7 @@ req: Request, res: Response
 ) => {
   try {
     const { id } = req.params;
+if (typeof id !== "string") { return res.status(400).json({ message: "shoppingListId is required" }); }
 
     await prisma.purchase.delete({
       where: { id },

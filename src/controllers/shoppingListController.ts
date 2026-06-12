@@ -48,6 +48,7 @@ req: Request, res: Response
 ) => {
   try {
     const { id } = req.params;
+    if (typeof id !== "string") { return res.status(400).json({ message: "shoppingListId is required" }); }
 
     const list = await prisma.shoppingList.findUnique({
       where: { id },
@@ -75,6 +76,7 @@ req: Request, res: Response
 ) => {
   try {
     const { id } = req.params;
+    if (typeof id !== "string") { return res.status(400).json({ message: "shoppingListId is required" }); }
 
     await prisma.shoppingList.delete({
       where: { id },
