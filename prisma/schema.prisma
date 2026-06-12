@@ -11,7 +11,6 @@ model ShoppingList {
   id         String      @id @default(uuid())
   name       String
   createdAt  DateTime    @default(now())
-
   purchases  Purchase[]
 }
 
@@ -19,18 +18,11 @@ model Purchase {
   id             String       @id @default(uuid())
 
   shoppingListId String
-  shoppingList   ShoppingList @relation(
-    fields: [shoppingListId],
-    references: [id],
-    onDelete: Cascade
-  )
-
+  shoppingList   ShoppingList @relation(fields: [shoppingListId],references: [id])
   itemName       String
   quantity       Int
   unitPrice      Float
   totalPrice     Float
-
   purchaseDate   DateTime
-
   createdAt      DateTime @default(now())
 }
