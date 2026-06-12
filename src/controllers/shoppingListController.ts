@@ -16,6 +16,7 @@ req: Request, res: Response
 
     res.status(201).json(list);
   } catch (error) {
+    console.error(JSON.stringify(error, null, 2));
     res.status(400).json({
       message: "Failed to create list",
     });
@@ -37,7 +38,7 @@ req: Request, res: Response
 
     res.json(lists);
   } catch (error) {
- console.error("getShoppingLists error:", error);
+ console.error(JSON.stringify(error, null, 2));
  
   res.status(400).json({
     message: "Failed to fetch lists",
@@ -68,7 +69,7 @@ req: Request, res: Response
 
     res.json(list);
   } catch (error) {
-    console.error(error);
+    console.error(JSON.stringify(error, null, 2));
     res.status(400).json({
     message: "Error retrieving list",
     error,
@@ -91,7 +92,7 @@ req: Request, res: Response
       message: "List deleted",
     });
   } catch (error) {
-    console.log(error)
+    console.error(JSON.stringify(error, null, 2));
     res.status(400).json({
       message: "Delete failed",
       error,

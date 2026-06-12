@@ -18,7 +18,7 @@ model Purchase {
   id             String       @id @default(uuid())
 
   shoppingListId String
-  shoppingList   ShoppingList @relation(fields: [shoppingListId],references: [id])
+  shoppingList   ShoppingList @relation(fields: [shoppingListId], references: [id])
   itemName       String
   quantity       Int
   unitPrice      Float
