@@ -17,7 +17,7 @@ app.get("/users", async (c) => {
     });
     return c.json(users);
 });
-const rawPort = (process.env.PORT ?? "").trim();
+const rawPort = (process.env.PORT  ?? "").trim();
 const parsedPort = rawPort.length > 0 ? Number(rawPort) : Number.NaN;
 const port = Number.isInteger(parsedPort) && parsedPort >= 0 && parsedPort <= 65535 ? parsedPort : 3000;
 serve({

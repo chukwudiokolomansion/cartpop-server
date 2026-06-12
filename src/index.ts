@@ -1,34 +1,30 @@
-import "dotenv/config";
-import { serve } from "@hono/node-server";
-import { Hono } from "hono";
-import { prisma } from "./lib/prisma.ts";
+import express from "express";
+import cors from "cors";
 
-const app = new Hono();
+import shoppingListRoutes
+  from "./routes/shoppingListRoutes.ts";
 
-app.get("/", (c) => {
-  return c.json({
-    message: "hello from create-prisma + hono",
-  });
-});
+import purchaseRoutes
+  from "./routes/purchaseRoutes.ts";
 
-app.get("/users", async (c) => {
-  const users = await prisma.user.findMany({
-    take: 10,
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+const app = express();
 
-  return c.json(users);
-});
+app.use(cors());
 
-const rawPort = (process.env.PORT ?? "").trim();
-const parsedPort = rawPort.length > 0 ? Number(rawPort) : Number.NaN;
-const port =
-  Number.isInteger(parsedPort) && parsedPort >= 0 && parsedPort <= 65535 ? parsedPort : 3000;
-serve({
-  fetch: app.fetch,
-  port,
-});
+app.use(express.json());
 
-console.log(`Server running at http://localhost:${port}`);
+app.use(
+  "/api/shopping-lists",
+  shoppingListRoutes
+);
+
+app.use(
+  "/api/purchases",
+  purchaseRoutes
+);
+
+
+app.listen(process.env.PORT, () => {
+  console.log("Server up and running")
+})
+export default app;
