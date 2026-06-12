@@ -1,0 +1,31 @@
+import express from "express";
+import cors from "cors";
+import "dotenv/config"
+import shoppingListRoutes
+  from "./routes/shoppingListRoutes.ts";
+
+import purchaseRoutes
+  from "./routes/purchaseRoutes.ts";
+
+const app = express();
+
+app.use(cors({origin:["http://localhost:5173", process.env.CLIENT_URL]}));
+
+
+app.use(express.json());
+
+app.use(
+  "/api/shopping-lists",
+  shoppingListRoutes
+);
+
+app.use(
+  "/api/purchases",
+  purchaseRoutes
+);
+
+
+app.listen(process.env.PORT, () => {
+  console.log("Server up and running")
+})
+export default app;
