@@ -37,9 +37,9 @@ req: Request, res: Response
 
     res.json(lists);
   } catch (error) {
-  console.error(error);
-
-  res.status(500).json({
+ console.error("getShoppingLists error:", error);
+ 
+  res.status(400).json({
     message: "Failed to fetch lists",
     error,
   });
