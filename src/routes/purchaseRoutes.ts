@@ -5,7 +5,7 @@ import {
   getPurchases,
   getPurchasesByList,
   deletePurchase,
-} from "../controllers/purchaseController";
+} from "../controllers/purchaseController.ts";
 
 const router = Router();
 

@@ -2,8 +2,7 @@ import express from "express"
 import prisma from "../lib/prisma.ts";
 
 export const createPurchase = async (
-  req: express.Request,
-  res: Response
+req, res
 ) => {
   try {
     const {
@@ -28,8 +27,9 @@ export const createPurchase = async (
         },
       });
 
-    res.status(201).json(purchase);
-  } catch {
+  return  res.status(201).json(purchase);
+  } catch(err) {
+    console.log(err)
     res.status(400).json({
       message: "Purchase creation failed",
     });
@@ -37,8 +37,7 @@ export const createPurchase = async (
 };
 
 export const getPurchases = async (
-  req: Request,
-  res: Response
+ req, res
 ) => {
   try {
     const purchases =
@@ -57,8 +56,7 @@ export const getPurchases = async (
 };
 
 export const getPurchasesByList = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const { shoppingListId } = req.params;
@@ -79,8 +77,7 @@ export const getPurchasesByList = async (
 };
 
 export const deletePurchase = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const { id } = req.params;

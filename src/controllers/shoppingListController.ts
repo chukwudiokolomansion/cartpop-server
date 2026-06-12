@@ -2,8 +2,7 @@ import express from "express";
 import prisma from "../lib/prisma.ts";
 
 export const createShoppingList = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const { name } = req.body;
@@ -23,8 +22,7 @@ export const createShoppingList = async (
 };
 
 export const getShoppingLists = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const lists = await prisma.shoppingList.findMany({
@@ -45,8 +43,7 @@ export const getShoppingLists = async (
 };
 
 export const getShoppingListById = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const { id } = req.params;
@@ -73,8 +70,7 @@ export const getShoppingListById = async (
 };
 
 export const deleteShoppingList = async (
-  req: Request,
-  res: Response
+req, res
 ) => {
   try {
     const { id } = req.params;
