@@ -17,7 +17,7 @@ model ShoppingList {
 model Purchase {
   id             String       @id @default(uuid())
 
-  shoppingListId String
+  shoppingListId String || Undefined
   shoppingList   ShoppingList @relation(fields: [shoppingListId],references: [id])
   itemName       String
   quantity       Int
