@@ -36,11 +36,14 @@ req: Request, res: Response
     });
 
     res.json(lists);
-  } catch {
-    res.status(400).json({
-      message: "Failed to fetch lists",
-    });
-  }
+  } catch (error) {
+  console.error(error);
+
+  res.status(500).json({
+    message: "Failed to fetch lists",
+    error,
+  });
+}
 };
 
 export const getShoppingListById = async (
@@ -64,9 +67,11 @@ req: Request, res: Response
     }
 
     res.json(list);
-  } catch {
+  } catch (error) {
+    console.error(error);
     res.status(400).json({
-      message: "Error retrieving list",
+    message: "Error retrieving list",
+    error,
     });
   }
 };
@@ -85,9 +90,11 @@ req: Request, res: Response
     res.json({
       message: "List deleted",
     });
-  } catch {
+  } catch (error) {
+    console.log(error)
     res.status(400).json({
       message: "Delete failed",
+      error,
     });
   }
 };
