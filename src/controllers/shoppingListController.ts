@@ -36,15 +36,18 @@ req: Request, res: Response
     });
 
     res.json(lists);
-  } catch (error) {
- console.error("getShoppingLists error:", error);
- 
-  res.status(400).json({
+ catch (error) {
+  console.error("Prisma error:", error);
+
+  res.status(500).json({
     message: "Failed to fetch lists",
-    error,
+    error:
+      error instanceof Error
+        ? error.message
+        : String(error),
   });
 }
-};
+
 
 export const getShoppingListById = async (
 req: Request, res: Response
