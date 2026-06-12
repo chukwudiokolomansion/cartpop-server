@@ -64,6 +64,8 @@ req: Request, res: Response
   try {
     const { shoppingListId } = req.params;
 
+if (!shoppingListId) { return res.status(400).json({ message: "shoppingListId is required" }); }
+
     const purchases =
       await prisma.purchase.findMany({
         where: {
